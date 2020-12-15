@@ -1,7 +1,7 @@
 # GitLab-11.4.7-Authenticated-Remote-Code-Execution
 
 
-<h3> Usage : python gitlab_rce.py -U <USERNAME> -P <PASSWORD> -l <LHOST> -p <LPORT>
+<h3> Usage : python gitlab_rce.py -U <USERNAME> -P <PASSWORD> -l <LHOST> -p <LPORT> </h3>
   
 
 usage: gitlab_rce.py [-h] [-U U] [-P P] [-l L] [-p P]
