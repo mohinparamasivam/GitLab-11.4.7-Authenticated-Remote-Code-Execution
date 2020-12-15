@@ -10,8 +10,8 @@ GitLab 11.4.7 Authenticated RCE
 
 <p>optional arguments:</p>
 
- <p> -h, --help  show this help message and exit </p>
- <p> -U U        GitLab Username </p>
- <p> -P P        Gitlab Password </p>
- <p> -l L        rev shell lhost </p>
- <p> -p P        rev shell lport </p> 
+ <p> -h, --help show this help message and exit </p>
+ <p> -U         GitLab Username </p>
+ <p> -P         Gitlab Password </p>
+ <p> -l         rev shell lhost </p>
+ <p> -p         rev shell lport </p> 
