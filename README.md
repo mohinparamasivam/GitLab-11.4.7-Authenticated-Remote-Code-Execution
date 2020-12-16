@@ -1,4 +1,4 @@
-# GitLab-11.4.7-Authenticated-Remote-Code-Execution
+# GitLab-11.4.7-Authenticated-Remote-Code-Execution (SSRF -> CRLF -> RCE)
 
 <h4> Blog : https://github.com/jas502n/gitlab-SSRF-redis-RCE/blob/master/README.md </h4>
 
