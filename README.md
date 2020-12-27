@@ -18,3 +18,10 @@ GitLab 11.4.7 Authenticated RCE
  <p> -P         Gitlab Password </p>
  <p> -l         rev shell lhost </p>
  <p> -p         rev shell lport </p> 
+
+
+# Dependencies
+
+<h4> pip install RandomWords==0.1.5 </h4>
+<h4> pip install bs4 </h4>
+<h4> pip install requests </h4>
