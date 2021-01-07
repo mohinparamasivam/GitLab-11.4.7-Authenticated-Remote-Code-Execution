@@ -1,3 +1,12 @@
+# Exploit Title: GitLab 11.4.7 Authenticated Remote Code Execution (No Interaction Required)
+# Date: 15th December 2020
+# Exploit Author: Mohin Paramasivam (Shad0wQu35t)
+# Software Link: https://about.gitlab.com/
+# POC: https://liveoverflow.com/gitlab-11-4-7-remote-code-execution-real-world-ctf-2018/
+# Tested on: GitLab 11.4.7 CE
+# CVE : CVE-2018-19571 (SSRF),CVE-2018-19585 (CRLF)
+#Python2 Implementation
+
 import requests
 import re
 import warnings
