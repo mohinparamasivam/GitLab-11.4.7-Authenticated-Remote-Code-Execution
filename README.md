@@ -22,6 +22,6 @@ GitLab 11.4.7 Authenticated RCE
 
 # Dependencies
 
-<h4> pip install RandomWords==0.1.5 </h4>
+<h4> pip install RandomWords==0.3.0 </h4>
 <h4> pip install bs4 </h4>
 <h4> pip install requests </h4>
