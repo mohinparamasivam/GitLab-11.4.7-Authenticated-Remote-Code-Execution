@@ -4,7 +4,7 @@
 <h4> Blog : https://github.com/jas502n/gitlab-SSRF-redis-RCE/blob/master/README.md </h4>
 
 
-<h3> Usage : python gitlab_rce.py -U `USERNAME` -P `PASSWORD` -l `LHOST` -p `LPORT` </h3>
+<h3> Usage : python3 gitlab_rce.py -U `USERNAME` -P `PASSWORD` -l `LHOST` -p `LPORT` </h3>
   
 
 usage: gitlab_rce.py [-h] [-U U] [-P P] [-l L] [-p P]
@@ -22,6 +22,6 @@ GitLab 11.4.7 Authenticated RCE
 
 # Dependencies
 
-<h4> pip install RandomWords==0.3.0 </h4>
-<h4> pip install bs4 </h4>
-<h4> pip install requests </h4>
+<h4> pip3 install RandomWords==0.3.0 </h4>
+<h4> pip3 install bs4 </h4>
+<h4> pip3 install requests </h4>
